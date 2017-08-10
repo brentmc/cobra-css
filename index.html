@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato">
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<style> 
+body{
+	background-color: lightpink;
+}
+
+.inputGroup {
+	position: absolute;
+	left:10px;
+	top:250px;
+}
+
+.speakerBtn {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	width: 76px;
+	height: 76px;
+	border-radius: 76px;
+ 	border: 5px solid #ffffff;
+    
+  background-image: url("iconSpeaker.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.backing.mission {
+	background-color: #0c9ce5;
+	color: white;
+}
+
+.backing.mission:hover {
+	background-color: #0077b3;
+}
+
+.backing.mission:active {
+	background-color: #005580;
+}
+
+.backing.correct {
+	background-color: #4cb963;
+	color: white;
+}
+
+.backing.correct:hover {
+	background-color: #00802a;
+}
+
+.backing.correct:active {
+	background-color: #006622;
+}
+
+.inputStroke {
+	position: absolute;
+	left: 5px;
+	top: 5px;
+	z-index: 6;
+	width: 525px;
+	height: 66px;
+	border: 5px solid black;
+	border-radius: 66px;
+}
+
+.inputStroke.mission {
+	border-color: #1f9de2;
+}
+
+.inputStroke.correct {
+	border-color: #4cb963;
+}
+
+.inputBacking {
+	z-index: 5;
+	position: absolute;
+	top:0px;
+	left:0px;
+	background-color: white;
+	width: 545px;
+	height: 86px;
+	border-radius: 86px;
+}
+
+.inputText { 
+	position: absolute;
+
+	left:100px;
+	z-index: 6;
+	width:445;
+	font-size: 31px;
+	font-family: 'Lato';
+	font-weight: 'bold';
+	text-align: 'left';
+
+	vertical-align: middle;
+	line-height: 76px;
+
+	background: transparent;
+	border: none;
+	outline: none;
+	color:#1f9de2;
+}
+
+.checkBtn {
+	position: absolute;
+	left: 382px;
+	top:5px;
+	z-index: 11;
+	width:158px;
+	height: 76px;
+	border-radius: 0 76px 76px 0;
+	font-size: 31px;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 76px;
+	user-select: none;
+	cursor: default;
+}
+
+.hidden {
+	display: none;
+}
+
+.visible {
+	display: block;
+}
+
+</style>
+</head>
+<body>
+<div class='inputGroup'>
+	<div id='myCheckBtn' class='checkBtn backing mission'>Check</div>
+	<div class='speakerBtn backing mission'></div>
+	<div class='inputStroke mission'></div>
+	<input type='text' placeholder='myPlaceholder2' class='inputText'/></input>
+	<div class='inputBacking'></div>
+	
+</div>
+
+<script type="text/javascript">
+	var changeToCorrect = function() {
+		var elements = document.querySelectorAll('.mission');
+		for (var i = 0; i < elements.length; i++) {
+			var element = elements[i];
+			element.classList.remove('mission');
+			element.classList.add('correct');
+		}		
+	}
+
+	document.getElementById('myCheckBtn').addEventListener("click", changeToCorrect);
+</script>
+
+</body>
+</html>
