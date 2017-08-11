@@ -98,7 +98,7 @@ body{
 	text-align: 'left';
 
 	vertical-align: middle;
-	line-height: 76px;
+	line-height: 86px;
 
 	background: transparent;
 	border: none;
@@ -124,6 +124,39 @@ body{
 	cursor: default;
 }
 
+.progressGroup {
+	position: absolute;
+	left: 10px;
+	top: 500px;
+	width: 600px;
+	height: 25px;
+}
+
+.progressFill {
+	position: absolute;
+	left:0;
+	top:2px;
+	z-index: 2;
+	background-color: #0c9ce5;
+	
+	width: 20px;
+	height: 100%;
+}
+
+.progressBacking {	
+	position: absolute;
+	left:0;
+	top:0;
+	z-index: 1;
+	background-color: #ceebfa;
+	border-top: 2px solid white;
+	border-bottom: 2px solid white;
+	width: 100%;
+	height:100%;
+}
+
+
+
 .hidden {
 	display: none;
 }
@@ -139,9 +172,14 @@ body{
 	<div id='myCheckBtn' class='checkBtn backing mission'>Check</div>
 	<div class='speakerBtn backing mission'></div>
 	<div class='inputStroke mission'></div>
-	<input type='text' placeholder='myPlaceholder2' class='inputText'/></input>
+	<input type='text' placeholder='Write' class='inputText'/></input>
 	<div class='inputBacking'></div>
 	
+</div>
+
+<div class='progressGroup'>
+	<div class='progressFill'></div>
+	<div class='progressBacking'></div>
 </div>
 
 <script type="text/javascript">
@@ -153,6 +191,16 @@ body{
 			element.classList.add('correct');
 		}		
 	}
+
+	setInterval(function() {
+		var elements = document.querySelectorAll('.progressFill');
+		for (var i = 0; i < elements.length; i++) {
+			var element = elements[i];
+			var width = parseInt(element.style.width) || 0;
+			var newWidth = (width + 20) % 600;
+			element.style.width = newWidth + 'px';
+		}		
+	}, 50);
 
 	document.getElementById('myCheckBtn').addEventListener("click", changeToCorrect);
 </script>
