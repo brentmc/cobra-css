@@ -165,9 +165,132 @@ body{
 	display: block;
 }
 
+.stepsGroup {
+	position: absolute;
+	left: 200px;
+	top: 25px;
+}
+
+/*
+.step {
+	width: 35px;
+	height: 35px;
+	border-radius: 35px;
+	background-color: white;
+	float:left;
+	margin: 0 0 10px 10px;
+	background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgba(0,0,255, 0.5);
+	background-blend-mode: multiply;
+}*/
+
+
+.step {
+	width: 35px;
+	height: 35px;
+	border-radius: 35px;
+	background-color: white;
+	float:left;
+	margin: 0 0 10px 10px;
+	background-position: center;
+  background-repeat: no-repeat;
+ 
+}
+
+.step:before {
+
+	
+}
+
+.step.look {
+	background-image: url("iconLook.png"); 
+	 background-color: rgba(0,0,255, 0.5);
+	background-blend-mode: multiply;
+}
+
+.step.say {
+	background-image: url("iconSay.png");
+}
+
+.step.cover {
+	background-image: url("iconCover.png");
+}
+
+.step.write {
+	background-image: url("iconWrite.png");
+}
+
+.step.check {
+	background-image: url("iconCheck.png");
+}
+
+.icon {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	background-image: url("iconLook.png"); 
+	width: 30px;
+	height: 30px;
+	background-position: center;
+  background-repeat: no-repeat;
+/*  -webkit-filter: invert(40%) grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-50deg) saturate(400%) contrast(2);
+      filter: grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-50deg) saturate(600%) contrast(0.8); */
+       -webkit-filter: invert(40%) grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-50deg) saturate(400%) contrast(2);
+      filter: grayscale(100%) brightness(400%) sepia(100%) hue-rotate(120deg) saturate(600%) contrast(0.8); 
+}
+
+
+.toolbarGroup {
+	position: absolute;
+	top: 5px;
+	right: 100px;
+}
+
+.toolbarSmall {
+	width: 30px;
+	height: 30px;
+	border-radius: 30px;
+	background-color: #0c9ce5;
+	float:left;
+	margin: 0 0 10px 10px;
+	background-position: center;
+  background-repeat: no-repeat;
+}
+
+.toolbarSmall.sfxOn {
+	background-image: url("iconSFXOn.png"); 
+}
+
+.toolbarSmall.sfxOff {
+	background-image: url("iconSFXOff.png"); 
+	background-color: grey;
+}
+
+.toolbarSmall.pause {
+	background-image: url("iconPause.png"); 
+}
+
 </style>
 </head>
 <body>
+
+<div class='stepsGroup'>
+	<div class='step look'></div>
+	<div class='step say'></div>
+	<div class='step cover'></div>
+	<div class='step write'></div>
+	<div class='step check'></div>
+</div>
+
+<div class='icon'></div>
+
+<div class='toolbarGroup'>
+	<div class='toolbarSmall sfxOff'></div>
+	<div class='toolbarSmall sfxOn'></div>
+	<div class='toolbarSmall pause'></div>
+</div>
+
 <div class='inputGroup'>
 	<div id='myCheckBtn' class='checkBtn backing mission'>Check</div>
 	<div class='speakerBtn backing mission'></div>
